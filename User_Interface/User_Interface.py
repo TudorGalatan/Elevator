@@ -15,13 +15,11 @@ class UserInterface:
     def __init__ (self):
         
         '''
-            It initializes the user interface with
-            a controller.
+            It initializes the user interface with a controller.
             Input:
-                - "controller", the controller to be used
+                - "controller": the controller to be used
             Output:
-                - the user interface is initialized with the
-                controller
+                - none
         '''
         
         pass
@@ -32,12 +30,11 @@ class UserInterface:
     def printMenu (self):
         
         '''
-            It prints the menu with the available options on the
-            screen.
+            It prints the menu with the available options on the screen.
             Input:
                 - none
             Output:
-                - the menu is printed on the screen
+                - none
         '''
         
         print("\n\t\tMENU\n\n")
@@ -55,13 +52,13 @@ class UserInterface:
             Input:
                 - none
             Output:
-                - the user interface starts running
+                - none
         '''
         
         while (True):
             
             self.printMenu()
-            print("Type the desired option: ")
+            print("Type the number associated with the desired option: ")
             option = int(input())
             
             if option == 0:

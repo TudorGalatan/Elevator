@@ -24,9 +24,9 @@ class TestElevator:
                 - none
         '''
         
-        self.__elevator_1 = Elevator(0)
-        self.__elevator_2 = Elevator(3)
-        self.__elevator_3 = Elevator(6)
+        self.__elevator_1 = Elevator()
+        self.__elevator_2 = Elevator(3, "going up")
+        self.__elevator_3 = Elevator(6, "going down")
         
         
     def test_getCurrentFloor (self):
@@ -42,6 +42,21 @@ class TestElevator:
         assert self.__elevator_1.getCurrentFloor() == 0
         assert self.__elevator_2.getCurrentFloor() == 3
         assert self.__elevator_3.getCurrentFloor() == 6
+        
+        
+    def test_getCurrentStatus (self):
+        
+        '''
+            This method tests the "getCurrentStatus" method inside the class "Elevator".
+            Input:
+                - none
+            Output:
+                - none
+        '''
+        
+        assert self.__elevator_1.getCurrentStatus() == None
+        assert self.__elevator_2.getCurrentStatus() == "going up"
+        assert self.__elevator_3.getCurrentStatus() == "going down"
         
         
     def test_setCurrentFloor (self):
@@ -62,6 +77,25 @@ class TestElevator:
         assert self.__elevator_2.getCurrentFloor() == 4
         assert self.__elevator_3.getCurrentFloor() == 0
         
+        
+    def test_setCurrentStatus (self):
+        
+        '''
+            This method tests the "setCurrentStatus" method inside the class "Elevator".
+            Input:
+                - none
+            Output:
+                - none
+        '''
+        
+        self.__elevator_1.setCurrentStatus("going up")
+        self.__elevator_2.setCurrentStatus("going down")
+        self.__elevator_3.setCurrentStatus("going up")
+        
+        assert self.__elevator_1.getCurrentStatus() == "going up"
+        assert self.__elevator_2.getCurrentStatus() == "going down"
+        assert self.__elevator_3.getCurrentStatus() == "going up"
+    
     
     def runElevatorTests (self):
         
@@ -74,4 +108,6 @@ class TestElevator:
         '''
         
         self.test_getCurrentFloor()
+        self.test_getCurrentStatus
         self.test_setCurrentFloor()
+        self.test_setCurrentStatus()

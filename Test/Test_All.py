@@ -4,6 +4,8 @@
 '''
 
 from Test.Test_Elevator import TestElevator
+from Test.Test_Floor import TestFloor
+from Test.Test_Repository import TestRepository
 
 
 
@@ -25,6 +27,8 @@ class TestAll:
         '''
 
         self.__testElevator = TestElevator()
+        self.__testFloor = TestFloor()
+        self.__testRepository = TestRepository()
 
 
     def runTests (self):
@@ -34,8 +38,9 @@ class TestAll:
             Input:
                 - none
             Output:
-                - true, if all the tests pass (all the functionalities work correctly)
-                - false, otherwise
+                - none
         '''
         
         self.__testElevator.runElevatorTests()
+        self.__testFloor.runFloorTests()
+        '''self.__testRepository.runRepositoryTests()'''
