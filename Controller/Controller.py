@@ -15,29 +15,39 @@ class Controller:
     def __init__ (self, repository):
         
         '''
-        Description:
-            - it initializes the controller with the repository
-        Input:
-            - "repository", the repository to be used
-        Output:
-            - the controller is initialized with the repository
+            It initializes the controller with the repository
+            Input:
+                - "repository", the repository to be used
+            Output:
+                - none
         '''
         
         self.__repository = repository
         
     
-    def addItem (self, item):
+    def getStateOfElevator (self, elevatorName):
         
         '''
-        Description:
-            - it adds a new item to the repository
-        Input:
-            - "item", the item to be added to the repository
-        Output:
-            - the new item is added to the repository, if it is not
-              already in it
-            - the quantity of the item is increased by 1, if it is
-              already in the repository
+            This method returns the state of the elevator.
+            Input:
+                - "elevatorName": the name of the elevator
+            Output:
+                - "state": the state of the elevator
         '''
         
-        self.__repository.addItem(item)
+        state = self.__repository.getStateOfElevator(elevatorName)
+        
+        return state
+    
+    
+    def callElevator (self, currentFloor, direction):
+        
+        '''
+            It calls an elevator from a floor.
+            Input:
+                - "currentFloor": the current floor
+            Output:
+                - "direction": the direction
+        '''
+        
+        self.__repository.callElevator(currentFloor, direction)

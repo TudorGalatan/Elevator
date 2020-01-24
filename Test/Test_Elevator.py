@@ -44,19 +44,19 @@ class TestElevator:
         assert self.__elevator_3.getCurrentFloor() == 6
         
         
-    def test_getCurrentStatus (self):
+    def test_getCurrentState (self):
         
         '''
-            This method tests the "getCurrentStatus" method inside the class "Elevator".
+            This method tests the "getCurrentState" method inside the class "Elevator".
             Input:
                 - none
             Output:
                 - none
         '''
         
-        assert self.__elevator_1.getCurrentStatus() == None
-        assert self.__elevator_2.getCurrentStatus() == "going up"
-        assert self.__elevator_3.getCurrentStatus() == "going down"
+        assert self.__elevator_1.getCurrentState() == "going nowhere"
+        assert self.__elevator_2.getCurrentState() == "going up"
+        assert self.__elevator_3.getCurrentState() == "going down"
         
         
     def test_setCurrentFloor (self):
@@ -78,23 +78,23 @@ class TestElevator:
         assert self.__elevator_3.getCurrentFloor() == 0
         
         
-    def test_setCurrentStatus (self):
+    def test_setCurrentState (self):
         
         '''
-            This method tests the "setCurrentStatus" method inside the class "Elevator".
+            This method tests the "setCurrentState" method inside the class "Elevator".
             Input:
                 - none
             Output:
                 - none
         '''
         
-        self.__elevator_1.setCurrentStatus("going up")
-        self.__elevator_2.setCurrentStatus("going down")
-        self.__elevator_3.setCurrentStatus("going up")
+        self.__elevator_1.setCurrentState("going up")
+        self.__elevator_2.setCurrentState("going down")
+        self.__elevator_3.setCurrentState("going nowhere")
         
-        assert self.__elevator_1.getCurrentStatus() == "going up"
-        assert self.__elevator_2.getCurrentStatus() == "going down"
-        assert self.__elevator_3.getCurrentStatus() == "going up"
+        assert self.__elevator_1.getCurrentState() == "going up"
+        assert self.__elevator_2.getCurrentState() == "going down"
+        assert self.__elevator_3.getCurrentState() == "going nowhere"
     
     
     def runElevatorTests (self):
@@ -108,6 +108,6 @@ class TestElevator:
         '''
         
         self.test_getCurrentFloor()
-        self.test_getCurrentStatus
+        self.test_getCurrentState()
         self.test_setCurrentFloor()
-        self.test_setCurrentStatus()
+        self.test_setCurrentState()

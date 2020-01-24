@@ -11,20 +11,20 @@ class Elevator:
     '''
     
     
-    def __init__ (self, currentFloor = 0, currentStatus = None):
+    def __init__ (self, currentFloor = 0, currentState = "going nowhere"):
         
         '''
             This method initializes an elevator with the given or the implicit
             values for its attributes.
             Input:
                 - "currentFloor": the current floor
-                - "currentStatus": the current status
+                - "currentState": the current state
             Output:
                 - none
         '''
         
         self.__currentFloor = currentFloor
-        self.__currentStatus = currentStatus
+        self.__currentState = currentState
         
         
     def getCurrentFloor (self):
@@ -43,20 +43,20 @@ class Elevator:
         return currentFloor
     
     
-    def getCurrentStatus (self):
+    def getCurrentState (self):
         
         '''
-            This method returns the current status, so it can be accessed from
+            This method returns the current state, so it can be accessed from
             outside the class.
             Input:
                 - none
             Output:
-                - "currentStatus": the current status
+                - "currentState": the current state
         '''
         
-        currentStatus = self.__currentStatus
+        currentState = self.__currentState
         
-        return currentStatus
+        return currentState
     
     
     def setCurrentFloor (self, currentFloor):
@@ -72,14 +72,14 @@ class Elevator:
         self.__currentFloor = currentFloor
         
         
-    def setCurrentStatus (self, currentStatus):
+    def setCurrentState (self, currentState):
         
         '''
-            This method sets the current status to its new value.
+            This method sets the current state to its new value.
             Input:
                 - none
             Output:
                 - none
         '''
         
-        self.__currentStatus = currentStatus
+        self.__currentState = currentState

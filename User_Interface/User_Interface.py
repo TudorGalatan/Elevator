@@ -12,7 +12,7 @@ class UserInterface:
     '''
     
     
-    def __init__ (self):
+    def __init__ (self, controller):
         
         '''
             It initializes the user interface with a controller.
@@ -22,9 +22,7 @@ class UserInterface:
                 - none
         '''
         
-        pass
-        
-        '''self.__controller = controller'''
+        self.__controller = controller
         
         
     def printMenu (self):
@@ -43,6 +41,65 @@ class UserInterface:
         print("1. For each elevator, display its current state.\n")
         print("2. For each floor, display which elevator is going up/down.\n")
         print("3. Call an elevator.\n")
+        print("4. Select destination.\n")
+        print("5. Reach destination.\n")
+        
+        
+    def displayCurrentStateOfElevators (self):
+        
+        '''
+            For each elevator, it displays its current state.
+            Input:
+                - none
+            Output:
+                - none
+        '''
+        
+        stateElevatorA = self.__controller.getStateOfElevator("A")
+        stateElevatorB = self.__controller.getStateOfElevator("B")
+        
+        print("\nThe current state of elevator A is: ", stateElevatorA, "\n")
+        print("The current state of elevator B is: ", stateElevatorB, "\n")
+        
+        
+    def displayWhichElevatorisGoingUpDown (self):
+        
+        '''
+            For each floor, it displays which elevator is going up/down.
+            Input:
+                - none
+            Output:
+                - none
+        '''
+        
+        for index in range (0, 7):
+            stateElevatorA = self.__controller.getStateOfElevator("A")
+            stateElevatorB = self.__controller.getStateOfElevator("B")
+            print("For the floor ", index, ", elevator A is ", stateElevatorA, "\n")
+            print("For the floor ", index, ", elevator B is ", stateElevatorB, "\n")
+            
+    
+    def callElevator (self):
+        
+        '''
+            It calls an elevator from a floor.
+            Input:
+                - none
+            Output:
+                - none
+        '''
+        
+        print("On which floor are you right now?")
+        print("Type a number between 0 and 6: ")
+        
+        currentFloor = int(input())
+        
+        print("\nWhere do you want to go?")
+        print("Type 0 for up or 1 for down: ")
+        
+        direction = input()
+        
+        self.__controller.callElevator(currentFloor, direction)
         
 
     def runApplication (self):
@@ -65,12 +122,18 @@ class UserInterface:
                 exit()
                 
             elif option == 1:
-                pass
+                self.displayCurrentStateOfElevators()
             
             elif option == 2:
-                pass
+                self.displayWhichElevatorisGoingUpDown()
             
             elif option == 3:
+                self.callElevator()
+            
+            elif option == 4:
+                pass
+            
+            elif option == 5:
                 pass
             
             else:

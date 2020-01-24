@@ -34,7 +34,7 @@ class TestRepository:
         self.__floor = Floor()
         
         self.__listOfFloors = []
-        for index in (0, 7):
+        for index in range (0, 7):
             self.__listOfFloors.append(self.__floor)
         
         
