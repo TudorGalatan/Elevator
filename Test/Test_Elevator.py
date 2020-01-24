@@ -19,9 +19,9 @@ class TestElevator:
         '''
             This method initializes the class with some data.
             Input:
-                - None
+                - none
             Output:
-                - None
+                - none
         '''
         
         self.__elevator_1 = Elevator(0)
@@ -34,9 +34,9 @@ class TestElevator:
         '''
             This method tests the "getCurrentFloor" method inside the class "Elevator".
             Input:
-                - None
+                - none
             Output:
-                - None
+                - none
         '''
         
         assert self.__elevator_1.getCurrentFloor() == 0
@@ -49,9 +49,9 @@ class TestElevator:
         '''
             This method tests the "setCurrentFloor" method inside the class "Elevator".
             Input:
-                - None
+                - none
             Output:
-                - None
+                - none
         '''
         
         self.__elevator_1.setCurrentFloor(6)
@@ -68,9 +68,9 @@ class TestElevator:
         '''
             This method runs all the elevator-related tests.
             Input:
-                - None
+                - none
             Output:
-                - None
+                - none
         '''
         
         self.test_getCurrentFloor()

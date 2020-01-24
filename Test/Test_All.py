@@ -7,17 +7,35 @@ from Test.Test_Elevator import TestElevator
 
 
 
-def runTests ():
+class TestAll:
     
     '''
-        Runs all the tests.
-        Input:
-            - None
-        Output:
-            - True, if all the tests pass (all the functionalities work correctly)
-            - False, otherwise
+        This class tests all the functionalities of the application.
     '''
     
-    test_elevator = TestElevator()
     
-    test_elevator.runElevatorTests()
+    def __init__ (self):
+        
+        '''
+            This method initializes the class with some data.
+            Input:
+                - none
+            Output:
+                - none
+        '''
+
+        self.__testElevator = TestElevator()
+
+
+    def runTests (self):
+        
+        '''
+            Runs all the tests.
+            Input:
+                - none
+            Output:
+                - true, if all the tests pass (all the functionalities work correctly)
+                - false, otherwise
+        '''
+        
+        self.__testElevator.runElevatorTests()
