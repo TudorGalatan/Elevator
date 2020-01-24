@@ -3,6 +3,7 @@
 '''
 
 
+
 class Elevator:
     
     '''
@@ -15,9 +16,9 @@ class Elevator:
         '''
             This method initializes an elevator with the given or the implicit
             values for its attributes.
-            Input Parameters:
+            Input:
                 - "currentFloor": the current floor
-            Output Parameters:
+            Output:
                 - None
         '''
         
@@ -29,9 +30,9 @@ class Elevator:
         '''
             This method returns the current floor, so it can be accessed from
             outside the class.
-            Input Parameters:
+            Input:
                 - None
-            Output Parameters:
+            Output:
                 - "currentFloor": the current floor
         '''
         
@@ -44,9 +45,9 @@ class Elevator:
         
         '''
             This method sets the current floor to its new value.
-            Input Parameters:
+            Input:
                 - None
-            Output Parameters:
+            Output:
                 - "currentFloor": the current floor
         '''
         
