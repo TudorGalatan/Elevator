@@ -92,14 +92,14 @@ class UserInterface:
         print("On which floor are you right now?")
         print("Type a number between 0 and 6: ")
         
-        currentFloor = int(input())
+        currentFloorIndex = int(input())
         
         print("\nWhere do you want to go?")
         print("Type 0 for up or 1 for down: ")
         
         direction = input()
         
-        self.__controller.callElevator(currentFloor, direction)
+        self.__controller.callElevator(currentFloorIndex, direction)
         
 
     def runApplication (self):

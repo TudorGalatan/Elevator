@@ -104,38 +104,60 @@ class Repository:
         return state
     
     
-    def callElevator (self, currentFloor, direction):
+    def callElevator (self, currentFloorIndex, direction):
         
         '''
             It calls an elevator from a floor.
             Input:
-                - "currentFloor": the current floor
-            Output:
+                - "currentFloorIndex": the current floor
                 - "direction": the direction
+            Output:
+                - none
         '''
         
+        # if you want to go up
+        if direction == 0:      
+            self.__listOfFloors[currentFloorIndex].setUpButtonPressed(True)
+        # if you want to go down
+        else:
+            self.__listOfFloors[currentFloorIndex].setDownButtonPressed(True)
+        
+        # Find the nearest elevator.
         elevator_A_currentFloor = self.__elevator_A.getCurrentFloor()
         elevator_B_currentFloor = self.__elevator_B.getCurrentFloor()
         
-        
-        if elevator_A_currentFloor >= currentFloor:
-            distanceToElevatorA = elevator_A_currentFloor - currentFloor
+        if elevator_A_currentFloor >= currentFloorIndex:
+            distanceToElevatorA = elevator_A_currentFloor - currentFloorIndex
         else:
-            distanceToElevatorA = currentFloor - elevator_A_currentFloor
+            distanceToElevatorA = currentFloorIndex - elevator_A_currentFloor
             
-        if elevator_B_currentFloor >= currentFloor:
-            distanceToElevatorB = elevator_B_currentFloor - currentFloor
+        if elevator_B_currentFloor >= currentFloorIndex:
+            distanceToElevatorB = elevator_B_currentFloor - currentFloorIndex
         else:
-            distanceToElevatorB = currentFloor - elevator_B_currentFloor
+            distanceToElevatorB = currentFloorIndex - elevator_B_currentFloor
             
         if distanceToElevatorA > distanceToElevatorB:
+            nearestElevatorName = "B"
             nearestElevator = self.__elevator_B
         elif distanceToElevatorB > distanceToElevatorA:
+            nearestElevatorName = "A"
             nearestElevator = self.__elevator_A
         else:
             if elevator_A_currentFloor <= elevator_B_currentFloor:
+                nearestElevatorName = "A"
                 nearestElevator = self.__elevator_A
             else:
+                nearestElevatorName = "B"
                 nearestElevator = self.__elevator_B
                 
-        
+        initialFloor = nearestElevator.getCurrentFloor()
+        if initialFloor >= currentFloorIndex:
+            if nearestElevatorName == "A":
+                self.__elevator_A.setCurrentState("going down")
+            else:
+                self.__elevator_B.setCurrentState("going down")
+        else:
+            if nearestElevatorName == "A":
+                self.__elevator_A.setCurrentState("going up")
+            else:
+                self.__elevator_B.setCurrentState("going up")

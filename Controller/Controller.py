@@ -40,14 +40,14 @@ class Controller:
         return state
     
     
-    def callElevator (self, currentFloor, direction):
+    def callElevator (self, currentFloorIndex, direction):
         
         '''
             It calls an elevator from a floor.
             Input:
-                - "currentFloor": the current floor
+                - "currentFloorIndex": the current floor
             Output:
                 - "direction": the direction
         '''
         
-        self.__repository.callElevator(currentFloor, direction)
+        self.__repository.callElevator(currentFloorIndex, direction)

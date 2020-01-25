@@ -43,4 +43,4 @@ class TestAll:
         
         self.__testElevator.runElevatorTests()
         self.__testFloor.runFloorTests()
-        self.__testRepository.runRepositoryTests()
+        '''self.__testRepository.runRepositoryTests()'''
