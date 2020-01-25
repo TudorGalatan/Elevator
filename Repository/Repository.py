@@ -154,10 +154,59 @@ class Repository:
         if initialFloor >= currentFloorIndex:
             if nearestElevatorName == "A":
                 self.__elevator_A.setCurrentState("going down")
+                self.__elevator_A.setCurrentFloor(currentFloorIndex)
             else:
                 self.__elevator_B.setCurrentState("going down")
+                self.__elevator_B.setCurrentFloor(currentFloorIndex)
         else:
             if nearestElevatorName == "A":
                 self.__elevator_A.setCurrentState("going up")
+                self.__elevator_A.setCurrentFloor(currentFloorIndex)
             else:
+                self.__elevator_B.setCurrentState("going up")
+                self.__elevator_B.setCurrentFloor(currentFloorIndex)
+                
+                
+    def selectDestination (self, destination):
+        
+        '''
+            Once the elevator came to your floor and you enter the elevator,
+            you have to select a destination. This functionality is managed
+            by this method.
+            Input:
+                - "destination": the destination
+            Output:
+                - none
+        '''
+        
+        # Find which elevator is being used.
+        if self.__elevator_A.getCurrentState() != "going nowhere":
+            elevatorName = "A"
+        elif self.__elevator_B.getCurrentState() != "going nowhere":
+            elevatorName = "B"
+        
+        '''
+        # Now, both elevators are stationary.
+        self.__elevator_A.setCurrentState("going nowhere")
+        self.__elevator_B.getCurrentState("going nowhere")
+        '''
+            
+        # Now, no buttons are pressed.
+        for index in range (0, 7):
+            self.__listOfFloors[index].setDownButtonPressed(False)
+            self.__listOfFloors[index].setDownButtonPressed(False)
+            
+        if elevatorName == "A":
+            if self.__elevator_A.getCurrentFloor() == destination:
+                return False
+            elif self.__elevator_A.getCurrentFloor() > destination:     # goes down
+                self.__elevator_A.setCurrentState("going down")
+            else:                                                       # goes up
+                self.__elevator_A.setCurrentState("going up")
+        elif elevatorName == "B":
+            if self.__elevator_B.getCurrentFloor() == destination:
+                return False
+            elif self.__elevator_B.getCurrentFloor() > destination:     # goes down
+                self.__elevator_B.setCurrentState("going down")
+            else:                                                       # goes up
                 self.__elevator_B.setCurrentState("going up")

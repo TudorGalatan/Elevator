@@ -101,6 +101,26 @@ class UserInterface:
         
         self.__controller.callElevator(currentFloorIndex, direction)
         
+        
+    def selectDestination (self):
+        
+        '''
+            Once the elevator came to your floor and you enter the elevator,
+            you have to select a destination. This functionality is managed
+            by this method.
+            Input:
+                - none
+            Output:
+                - none
+        '''
+        
+        print("Where do you want to go?")
+        print("Type a number between 0 and 6: ")
+        
+        destination = int(input())
+        
+        self.__controller.selectDestination(destination)
+        
 
     def runApplication (self):
         
@@ -131,7 +151,7 @@ class UserInterface:
                 self.callElevator()
             
             elif option == 4:
-                pass
+                self.selectDestination()
             
             elif option == 5:
                 pass

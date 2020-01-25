@@ -51,3 +51,18 @@ class Controller:
         '''
         
         self.__repository.callElevator(currentFloorIndex, direction)
+        
+        
+    def selectDestination (self, destination):
+        
+        '''
+            Once the elevator came to your floor and you enter the elevator,
+            you have to select a destination. This functionality is managed
+            by this method.
+            Input:
+                - "destination": the destination
+            Output:
+                - none
+        '''
+        
+        self.__repository.selectDestination(destination)
