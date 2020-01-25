@@ -182,14 +182,10 @@ class Repository:
         # Find which elevator is being used.
         if self.__elevator_A.getCurrentState() != "going nowhere":
             elevatorName = "A"
+            self.__elevator_A.setDestinationFloor(destination)
         elif self.__elevator_B.getCurrentState() != "going nowhere":
             elevatorName = "B"
-        
-        '''
-        # Now, both elevators are stationary.
-        self.__elevator_A.setCurrentState("going nowhere")
-        self.__elevator_B.getCurrentState("going nowhere")
-        '''
+            self.__elevator_B.setDestinationFloor(destination)
             
         # Now, no buttons are pressed.
         for index in range (0, 7):
@@ -210,3 +206,28 @@ class Repository:
                 self.__elevator_B.setCurrentState("going down")
             else:                                                       # goes up
                 self.__elevator_B.setCurrentState("going up")
+                
+                
+    def reachDestination (self):
+        
+        '''
+            Once you selected the desired destination, the elevator takes its time to reach
+            it and when it does, the states change again. This functionality is managed
+            by this method.
+            Input:
+                - none
+            Output:
+                - none
+        '''
+        
+        destination = self.__elevator_A.getDestinationFloor()
+        
+        if destination != None:     # we are using elevator A
+            self.__elevator_A.setCurrentFloor(destination)
+            self.__elevator_A.setCurrentState("going nowhere")
+            self.__elevator_A.setDestinationFloor(None)
+            
+        else:                       # we are using elevator B
+            self.__elevator_B.setCurrentFloor(destination)
+            self.__elevator_B.setCurrentState("going nowhere")
+            self.__elevator_B.setDestinationFloor(None)

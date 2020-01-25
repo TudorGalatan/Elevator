@@ -121,6 +121,21 @@ class UserInterface:
         
         self.__controller.selectDestination(destination)
         
+        
+    def reachDestination (self):
+        
+        '''
+            Once you selected the desired destination, the elevator takes its time to reach
+            it and when it does, the states change again. This functionality is managed
+            by this method.
+            Input:
+                - none
+            Output:
+                - none
+        '''
+        
+        self.__controller.reachDestination()
+        
 
     def runApplication (self):
         
@@ -154,7 +169,7 @@ class UserInterface:
                 self.selectDestination()
             
             elif option == 5:
-                pass
+                self.reachDestination()
             
             else:
                 print("\nThis is not a valid option. Please try again.\n")

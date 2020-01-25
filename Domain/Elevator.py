@@ -11,7 +11,7 @@ class Elevator:
     '''
     
     
-    def __init__ (self, currentFloor = 0, currentState = "going nowhere"):
+    def __init__ (self, currentFloor = 0, currentState = "going nowhere", destinationFloor = None):
         
         '''
             This method initializes an elevator with the given or the implicit
@@ -19,12 +19,14 @@ class Elevator:
             Input:
                 - "currentFloor": the current floor
                 - "currentState": the current state
+                - "destinationFloor": the destination state
             Output:
                 - none
         '''
         
         self.__currentFloor = currentFloor
         self.__currentState = currentState
+        self.__destinationFloor = destinationFloor
         
         
     def getCurrentFloor (self):
@@ -59,6 +61,22 @@ class Elevator:
         return currentState
     
     
+    def getDestinationFloor (self):
+        
+        '''
+            This method returns the destination floor, so it can be accessed from
+            outside the class.
+            Input:
+                - none
+            Output:
+                - "destinationFloor": the current state
+        '''
+        
+        destinationFloor = self.__destinationFloor
+        
+        return destinationFloor
+    
+    
     def setCurrentFloor (self, currentFloor):
         
         '''
@@ -83,3 +101,16 @@ class Elevator:
         '''
         
         self.__currentState = currentState
+        
+    
+    def setDestinationFloor (self, destinationFloor):
+        
+        '''
+            This method sets the destination floor to its new value.
+            Input:
+                - none
+            Output:
+                - none
+        '''
+        
+        self.__destinationFloor = destinationFloor

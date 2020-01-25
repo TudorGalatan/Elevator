@@ -25,8 +25,8 @@ class TestElevator:
         '''
         
         self.__elevator_1 = Elevator()
-        self.__elevator_2 = Elevator(3, "going up")
-        self.__elevator_3 = Elevator(6, "going down")
+        self.__elevator_2 = Elevator(3, "going up", 6)
+        self.__elevator_3 = Elevator(6, "going down", 2)
         
         
     def test_getCurrentFloor (self):
@@ -57,6 +57,21 @@ class TestElevator:
         assert self.__elevator_1.getCurrentState() == "going nowhere"
         assert self.__elevator_2.getCurrentState() == "going up"
         assert self.__elevator_3.getCurrentState() == "going down"
+        
+        
+    def test_getDestinationFloor (self):
+        
+        '''
+            This method tests the "getDestinationFloor" method inside the class "Elevator".
+            Input:
+                - none
+            Output:
+                - none
+        '''
+        
+        assert self.__elevator_1.getDestinationFloor() == None
+        assert self.__elevator_2.getDestinationFloor() == 6
+        assert self.__elevator_3.getDestinationFloor() == 2
         
         
     def test_setCurrentFloor (self):
@@ -95,6 +110,25 @@ class TestElevator:
         assert self.__elevator_1.getCurrentState() == "going up"
         assert self.__elevator_2.getCurrentState() == "going down"
         assert self.__elevator_3.getCurrentState() == "going nowhere"
+        
+        
+    def test_setDestinationFloor (self):
+        
+        '''
+            This method tests the "setDestinationFloor" method inside the class "Elevator".
+            Input:
+                - none
+            Output:
+                - none
+        '''
+        
+        self.__elevator_1.setDestinationFloor(5)
+        self.__elevator_2.setDestinationFloor(None)
+        self.__elevator_3.setDestinationFloor(4)
+        
+        assert self.__elevator_1.getDestinationFloor() == 5
+        assert self.__elevator_2.getDestinationFloor() == None
+        assert self.__elevator_3.getDestinationFloor() == 4
     
     
     def runElevatorTests (self):
@@ -109,5 +143,7 @@ class TestElevator:
         
         self.test_getCurrentFloor()
         self.test_getCurrentState()
+        self.test_getDestinationFloor()
         self.test_setCurrentFloor()
         self.test_setCurrentState()
+        self.test_setDestinationFloor()

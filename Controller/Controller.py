@@ -66,3 +66,18 @@ class Controller:
         '''
         
         self.__repository.selectDestination(destination)
+        
+    
+    def reachDestination (self):
+        
+        '''
+            Once you selected the desired destination, the elevator takes its time to reach
+            it and when it does, the states change again. This functionality is managed
+            by this method.
+            Input:
+                - none
+            Output:
+                - none
+        '''
+        
+        self.__repository.reachDestination()
